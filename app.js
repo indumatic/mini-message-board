@@ -1,5 +1,7 @@
 const express = require("express")
 const path = require("node:path")
+const newRouter = require("./routes/newRouter.js")
+const indexRouter = require("./routes/indexRouter.js")
 
 const app = express()
 
@@ -11,9 +13,8 @@ app.set("view engine", "ejs")
 const assetsPath = path.join(__dirname, "public")
 app.use(express.static(assetsPath))
 
-app.get("/",(req, res) => {
-    res.send("minimal express app")
-})
+app.use("/", indexRouter)
+app.use("/new", newRouter)
 
 const PORT = 3000
 app.listen(PORT, err => {
