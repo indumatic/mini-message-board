@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>Mini message board</title>
+    </head>
+    <body>
+        <h1>Index</h1>
+        <div>
+            <% messages.forEach(message => { %>
+                <%- include('messages/message', {message: message}) %>
+            <% }) %>
+        </div>
+    </body>
+</html>
